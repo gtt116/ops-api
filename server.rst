@@ -14,6 +14,7 @@ Request body schema:
   - **name** (*required*): String, the name of server.
   - **imageRef** (*required*): String, The image reference. Specify as an ID or full URL.
   - **metadata** (*optional*): A dict of key and value pair:
+
     - **key** (*required*): String, key of metadata
     - **value** (*required*): String, value of metadata
 
@@ -40,7 +41,7 @@ Example
 
 **Response** ::
 
-    HTTP 200
+    HTTP/1.1 200 OK
 
     {
         "server": {
