@@ -11,10 +11,10 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   server.rst
-   image.rst
-   flavor.rst
-   security_group.rst
+   server
+   image
+   flavor
+   security_group
 
 
 
