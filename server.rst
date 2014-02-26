@@ -18,6 +18,11 @@ Request body schema:
     - **key** (*required*): String, key of metadata
     - **value** (*required*): String, value of metadata
 
+- **os:scheduler_hints** (*optional*): Dict, scheduler hints
+
+  - **query** (*optional*): String, An valid json string.  e.g. "[\"in\", \"$service.availability_zone\", \"nova11\", \"nova12\"]" 
+  - **same_host** (*optional*): List, A instance uuid list which new instance will located in.
+
 
 
 Example
@@ -75,6 +80,41 @@ Request Parameters:
   status.
 - **image** (*optional*): string, UUID of image which the server is using.
 - **flavor** (*optional*): string, id of flavor which the server is using.
+- **name** (*optional*): string, name of instance.
+- **marker** (*optional*): string, UUID of instance which is the start the response item.
+- **limit** (*optional*): string, the count of response item.
+- **status** (*optional*): string, the instance status, like 'ACITVE'
+- **all_tenants** (*optional*): true/false, when you are `admin` you can query all instance in system.
+
+Example
+--------
+**Request** ::
+
+  GET /servers?image=imageRef&flavor=flavorRef&name=serverName&status=serverStatus&marker=markerID&limit=int&changes-since=dateTime
+
+
+**Response** ::
+
+ HTTP/1.1 200 OK
+
+ {
+    "servers": [
+        {
+            "id": "dc05163d-6a95-4590-bb0b-45334501cd39",
+            "links": [
+                {
+                    "href": "http://10.120.120.11:8774/v2/3179fc9d69d747b4a06f27a6d2334050/servers/dc05163d-6a95-4590-bb0b-45334501cd39",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://10.120.120.11:8774/3179fc9d69d747b4a06f27a6d2334050/servers/dc05163d-6a95-4590-bb0b-45334501cd39",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "jenkins"
+        }
+    ]
+ }
 
 
 GET /v2/{tenant}/servers/detail
