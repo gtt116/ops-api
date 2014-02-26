@@ -10,8 +10,13 @@ Request body schema:
 
 - **server** (*required*): A dict of server attributes, including:
 
+  - **tenant_id** (*optional*): string, 多tenant云环境下的tenant或账号Id
   - **name** (*required*): String, the name of server.
-  - **imageRef** (*required*): String, the uuid of image to use.
+  - **imageRef** (*required*): String, The image reference. Specify as an ID or full URL.
+  - **metadata** (*optional*): A dict of key and value pair:
+    - **key** (*required*): String, key of metadata
+    - **value** (*required*): String, value of metadata
+
 
 
 Example
@@ -64,10 +69,11 @@ Show all servers belong to the tenant.
 
 Request Parameters:
 ----------
-* **changes-since** (*optional*): dateTime, A time/date stamp for when the server last changed
+
+- **changes-since** (*optional*): dateTime, A time/date stamp for when the server last changed
   status.
-* **image** (*optional*): string, UUID of image which the server is using.
-* **flavor** (*optional*): string, id of flavor which the server is using.
+- **image** (*optional*): string, UUID of image which the server is using.
+- **flavor** (*optional*): string, id of flavor which the server is using.
 
 
 GET /v2/{tenant}/servers/detail
