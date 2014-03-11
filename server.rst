@@ -20,7 +20,7 @@ Request body schema:
 
 - **os:scheduler_hints** (*optional*): Dict, scheduler hints
 
-  - **query** (*optional*): String, An valid json string.  e.g. "[\"in\", \"$service.availability_zone\", \"nova11\", \"nova12\"]" 
+  - **query** (*optional*): String, An valid json string.  e.g. "[\\"in\\", \\"$service.availability_zone\\", \\"nova11\\", \\"nova12\\"]" 
   - **same_host** (*optional*): List, A instance uuid list which new instance will located in.
 
 
@@ -40,7 +40,9 @@ Example
             "same_host": ["a0cf03a5-d921-4877-bb5c-86d26cf818e1",
             "8c19174f-4220-44f0-824a-cd1eeef10287"],
             "build_near_host_ip": "192.168.1.1",
-            "cidr": "24"
+            "cidr": "24",
+            "query": "[\"in\", \"$service.availability_zone\", \"nova11\", \"nova12\"]",
+            "query": "[\"in\", \"$service.host\", \"10-120-120-11\", \"10-120-120-13\"]"
         }
     }
 
